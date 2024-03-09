@@ -9,6 +9,7 @@ gem "puma", "~> 6.4"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 
+gem "active_model_serializers"
 gem "config"
 gem "devise"
 gem "devise-i18n"
