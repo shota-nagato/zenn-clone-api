@@ -17,6 +17,7 @@ gem "devise_token_auth", ">= 1.2.0", git: "https://github.com/lynndylanhurley/de
 gem "rack-cors"
 
 group :development, :test do
+  gem "factory_bot_rails"
   gem "letter_opener_web"
   gem "pry-byebug"
   gem "pry-doc"
