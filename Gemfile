@@ -19,6 +19,7 @@ gem "rack-cors"
 
 group :development, :test do
   gem "bullet"
+  gem "committee-rails"
   gem "factory_bot_rails"
   gem "faker"
   gem "letter_opener_web"
