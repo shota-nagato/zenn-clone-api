@@ -28,7 +28,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "pageをparamsで指定した場合" do
-      let(:params) { { page: 2} }
+      let(:params) { {page: 2} }
 
       it "該当ページ目のレコードを取得出来る" do
         subject
