@@ -1,5 +1,6 @@
 RUN := run --rm
 DOCKER_COMPOSE_RUN := docker-compose $(RUN)
+args := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 
 setup:
 	@make build
@@ -37,6 +38,9 @@ dbreset:
 
 dbrollback:
 	${DOCKER_COMPOSE_RUN} rails rails db:rollback
+
+rails:
+	${DOCKER_COMPOSE_RUN} rails rails $(args)
 
 rspec:
 	${DOCKER_COMPOSE_RUN} rails rspec
