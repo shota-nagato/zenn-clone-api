@@ -35,6 +35,9 @@ dbreset:
 	${DOCKER_COMPOSE_RUN} rails rails db:migrate:reset
 	@make dbseed
 
+dbrollback:
+	${DOCKER_COMPOSE_RUN} rails rails db:rollback
+
 rspec:
 	${DOCKER_COMPOSE_RUN} rails rspec
 
