@@ -1,6 +1,6 @@
 class Api::V1::ArticlesController < Api::V1::BaseController
   def index
-    pagy, articles = pagy(Article.published.order(created_at: :desc))
+    pagy, articles = pagy(Article.published.preload(:user).order(created_at: :desc))
     render json: articles
   end
 
