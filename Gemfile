@@ -14,9 +14,11 @@ gem "config"
 gem "devise"
 gem "devise-i18n"
 gem "devise_token_auth", ">= 1.2.0", git: "https://github.com/lynndylanhurley/devise_token_auth"
+gem "pagy"
 gem "rack-cors"
 
 group :development, :test do
+  gem "bullet"
   gem "factory_bot_rails"
   gem "faker"
   gem "letter_opener_web"

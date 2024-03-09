@@ -12,6 +12,8 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
   rails:
+    environment:
+      TZ: Asia/Tokyo
     build: .
     command: bash -c "bundle exec rails s -b '0.0.0.0'"
     volumes:
