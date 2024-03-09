@@ -9,10 +9,17 @@ gem "puma", "~> 6.4"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 
+gem "active_model_serializers"
 gem "config"
+gem "devise"
+gem "devise-i18n"
+gem "devise_token_auth", ">= 1.2.0", git: "https://github.com/lynndylanhurley/devise_token_auth"
 gem "rack-cors"
 
 group :development, :test do
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "letter_opener_web"
   gem "pry-byebug"
   gem "pry-doc"
   gem "pry-rails"
