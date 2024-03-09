@@ -11,7 +11,7 @@ gem "bootsnap", require: false
 
 gem "config"
 gem "devise"
-gem 'devise_token_auth', '>= 1.2.0', git: "https://github.com/lynndylanhurley/devise_token_auth"
+gem "devise_token_auth", ">= 1.2.0", git: "https://github.com/lynndylanhurley/devise_token_auth"
 gem "rack-cors"
 
 group :development, :test do
