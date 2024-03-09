@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Article, type: :model do
   context "factoryのデフォルト設定に従った場合" do
@@ -51,5 +51,4 @@ RSpec.describe Article, type: :model do
       end
     end
   end
-
 end
