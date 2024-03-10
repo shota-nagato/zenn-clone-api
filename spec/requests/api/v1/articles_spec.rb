@@ -22,7 +22,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(headers["total-pages"]).to eq "2"
         expect(headers["total-count"]).to eq "30"
         expect(res.length).to eq 20
-        expect(res[0].keys).to eq %w[id title content created_at from_today user]
+        expect(res[0].keys).to eq %w[id title content status created_at from_today user]
         expect(response).to have_http_status(:ok)
         assert_schema_conform(200)
       end
@@ -41,7 +41,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(headers["total-pages"]).to eq "2"
         expect(headers["total-count"]).to eq "30"
         expect(res.length).to eq 10
-        expect(res[0].keys).to eq %w[id title content created_at from_today user]
+        expect(res[0].keys).to eq %w[id title content status created_at from_today user]
         expect(response).to have_http_status(:ok)
         assert_schema_conform(200)
       end
@@ -59,7 +59,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         it "正常にレコードを取得出来る" do
           subject
           res = JSON.parse(response.body)
-          expect(res.keys).to eq %w[id title content created_at from_today user]
+          expect(res.keys).to eq %w[id title content status created_at from_today user]
           expect(res["user"].keys).to eq ["name"]
           expect(response).to have_http_status(:ok)
           assert_schema_conform(200)
