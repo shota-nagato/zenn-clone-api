@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Api::V1::Current::Articles", type: :request do
   describe "POST api/v1/current/articles" do
@@ -37,7 +37,7 @@ RSpec.describe "Api::V1::Current::Articles", type: :request do
     let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { create(:user) }
     let(:other_user) { create(:user) }
-    let(:params) { { "article": { "title": "テストタイトル2", "content": "テスト本文2", "status": "published" } } }
+    let(:params) { {article: {title: "テストタイトル2", content: "テスト本文2", status: "published"}} }
 
     context ":id がログインユーザーに紐づく articles レコードの id である時" do
       let(:current_user_article) { create(:article, title: "テストタイトル1", content: "テスト本文1", status: :draft, user: current_user) }

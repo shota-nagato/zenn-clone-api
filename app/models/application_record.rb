@@ -7,6 +7,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def human_attribute_enum(attr_name)
-    self.class.human_attribute_enum_value(attr_name, self.send("#{attr_name}"))
+    self.class.human_attribute_enum_value(attr_name, send(:"#{attr_name}"))
   end
 end
