@@ -24,5 +24,14 @@ services:
       - db
     tty: true
     stdin_open: true
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: 'swagger-ui'
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./openapi.yml:/openapi.yml
+    environment:
+      SWAGGER_JSON: /openapi.yml
 volumes:
   mysql_data:
