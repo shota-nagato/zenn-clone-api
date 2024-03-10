@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: zenn-clone
+  description: OpenAPI
+servers:
+  - url: 'http://localhost:3000/api/v1'
+paths:
+  /articles:
+    get:
+      tags:
+        - articles
+      responses:
+        200:
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+  /articles/{id}:
+    get:
+      tags:
+        - articles
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Article'
+components:
+  schemas:
+    Article:
+      type: object
+      required:
+        - id
+        - title
+        - content
+        - created_at
+        - from_today
+        - user
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: タイトル1
+        content:
+          type: string
+          example: 本文1
+        created_at:
+          type: string
+          example: 2024/08/13
+        from_today:
+          type: string
+          example: 35秒前
+        user:
+          type: object
+          properties:
+            name:
+              type: string
+              example: ユーザー1

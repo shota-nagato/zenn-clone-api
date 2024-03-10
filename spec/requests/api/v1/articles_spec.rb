@@ -24,6 +24,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(res.length).to eq 20
         expect(res[0].keys).to eq %w[id title content created_at from_today user]
         expect(response).to have_http_status(:ok)
+        assert_schema_conform(200)
       end
     end
 
@@ -42,6 +43,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(res.length).to eq 10
         expect(res[0].keys).to eq %w[id title content created_at from_today user]
         expect(response).to have_http_status(:ok)
+        assert_schema_conform(200)
       end
     end
   end
@@ -60,6 +62,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
           expect(res.keys).to eq %w[id title content created_at from_today user]
           expect(res["user"].keys).to eq ["name"]
           expect(response).to have_http_status(:ok)
+          assert_schema_conform(200)
         end
       end
 
