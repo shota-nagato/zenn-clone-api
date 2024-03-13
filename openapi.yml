@@ -16,9 +16,21 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Article'
+                type: object
+                properties:
+                  article:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      total_pages:
+                        type: integer
+                        example: 4
   /articles/{id}:
     get:
       tags:
