@@ -1,5 +1,4 @@
-
-require 'pagy/extras/metadata'
+require "pagy/extras/metadata"
 
 module Paginationable
   extend ActiveSupport::Concern
