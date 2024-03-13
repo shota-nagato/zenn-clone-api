@@ -1,4 +1,4 @@
-require "pagy/extras/headers"
+require "pagy/extras/metadata"
 
 module Paginationable
   extend ActiveSupport::Concern
@@ -9,9 +9,11 @@ module Paginationable
     include Pagy::Backend
   end
 
-  def pagination(items)
-    pagy, items = pagy(items, items: LIMIT)
-    pagy_headers_merge(pagy)
-    items
+  def meta(pagy)
+    pagy_metadata = pagy_metadata(pagy)
+    {
+      current_page: pagy_metadata[:page],
+      total_pages: pagy_metadata[:pages]
+    }
   end
 end

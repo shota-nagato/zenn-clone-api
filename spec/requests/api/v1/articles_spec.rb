@@ -15,14 +15,11 @@ RSpec.describe "Api::V1::Articles", type: :request do
       it "1ページ目のレコードを取得出来る" do
         subject
         res = JSON.parse(response.body)
-        headers = response.headers
 
-        expect(headers["current-page"]).to eq "1"
-        expect(headers["page-items"]).to eq "20"
-        expect(headers["total-pages"]).to eq "2"
-        expect(headers["total-count"]).to eq "30"
-        expect(res.length).to eq 20
-        expect(res[0].keys).to eq %w[id title content status created_at from_today user]
+        expect(res["articles"].length).to eq 20
+        expect(res["articles"][0].keys).to eq %w[id title content status created_at from_today user]
+        expect(res["meta"]["current_page"]).to eq 1
+        expect(res["meta"]["total_pages"]).to eq 2
         expect(response).to have_http_status(:ok)
         assert_schema_conform(200)
       end
@@ -34,14 +31,11 @@ RSpec.describe "Api::V1::Articles", type: :request do
       it "該当ページ目のレコードを取得出来る" do
         subject
         res = JSON.parse(response.body)
-        headers = response.headers
 
-        expect(headers["current-page"]).to eq "2"
-        expect(headers["page-items"]).to eq "20"
-        expect(headers["total-pages"]).to eq "2"
-        expect(headers["total-count"]).to eq "30"
-        expect(res.length).to eq 10
-        expect(res[0].keys).to eq %w[id title content status created_at from_today user]
+        expect(res["articles"].length).to eq 10
+        expect(res["articles"][0].keys).to eq %w[id title content status created_at from_today user]
+        expect(res["meta"]["current_page"]).to eq 2
+        expect(res["meta"]["total_pages"]).to eq 2
         expect(response).to have_http_status(:ok)
         assert_schema_conform(200)
       end
